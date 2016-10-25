@@ -1,9 +1,7 @@
 const router           = require("express").Router();
 const authentications  = require("../controllers/authentications");
 const users            = require("../controllers/users");
-const clothesItems     = require('../controllers/clothesItems');
-const transactions     = require('../controllers/transactions');
-
+const brewClubs        = require("../controllers/brewClubs");
 
 router.route("/register")
 .post(authentications.register);
@@ -14,25 +12,12 @@ router.route('/users/:id')
 .get(users.show)
 .put(users.update);
 
-router.route('/clothesItems')
-.get(clothesItems.index)
-.post(clothesItems.create);
-router.route('/clothesItems/:id')
-.get(clothesItems.show)
-.put(clothesItems.update)
-.delete(clothesItems.delete);
-
-router.route('/transactions')
-.get(transactions.index)
-.post(transactions.create);
-router.route('/transactions/:id/swishback')
-.put(transactions.swishback);
-router.route('/transactions/:id/approve')
-.put(transactions.approve);
-router.route('/transactions/:id/reject')
-.put(transactions.reject);
-
-
-
+router.route("/brewClubs")
+.get(brewClubs.index)
+.post(brewClubs.create);
+router.route('/brewClubs/:id')
+.get(brewClubs.show)
+.put(brewClubs.update)
+.delete(brewClubs.delete);
 
 module.exports = router;

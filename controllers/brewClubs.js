@@ -10,8 +10,10 @@ const BrewClub = require('../models/brewClub');
 
 function brewClubsIndex(req, res) {
   let query = {};
-  if (req.query.user) query.owner = req.query.user;
-  if (req.query.available) query.available = req.query.available;
+  // if (req.query.user) query.owner = req.query.user;
+  if (req.user.id) query.owner = req.user.id;
+  console.log(query.owner)
+  console.log(req.user.id)
   BrewClub.find(query)
   .populate("owner")
   .exec((err, brewClubs) => {
@@ -22,7 +24,9 @@ function brewClubsIndex(req, res) {
 
 function brewClubsCreate(req, res) {
   const brewClub = new BrewClub(req.body.brewClub);
-  brewClub.owner = req.user._id;
+  console.log(req.user_id);
+  console.log(req.user.id);
+  brewClub.owner = req.user.id;
   brewClub.save((err, brewClub) => {
     if (err) return res.status(500).json({ err });
     return res.status(201).json({ brewClub });

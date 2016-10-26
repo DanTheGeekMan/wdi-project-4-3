@@ -9,8 +9,12 @@ const userSchema = new mongoose.Schema({
   email:        { type: String, unique: true, trim: true, required: true },
   phone:        { type: String, trim: true },
   passwordHash: { type: String, required: true },
-  items:        [{ type: mongoose.Schema.Types.ObjectId, ref: "ClothesItem" }],
-  swishes:      [{ type: mongoose.Schema.Types.ObjectId, ref: "Transaction" }]
+  brew: {
+    type:     { type: String, enum: ["tea", "coffee"], required: true },
+    sugar:    { type: Number },
+    sweetner: { type: Number },
+    colour:   { type: String, enum: ["light", "normal", "dark", "black"], required: true },
+  }
 }, {
   timestamps: true
 });

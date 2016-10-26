@@ -1,5 +1,5 @@
 angular
-  .module("swishListApp")
+  .module("brewClub")
   .factory("User", userFactory);
 
 userFactory.$inject =["API", "$resource"];

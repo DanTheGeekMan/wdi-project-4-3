@@ -1,0 +1,7 @@
+<h2>{{ show.brewClub.name }}</h2>
+<img ng-src="{{ show.brewClub.image }}">
+<ul>
+  <li ng-repeat="member in show.brewClub.members">
+    {{ member.firstName }}
+  </li>
+</ul>

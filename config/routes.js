@@ -12,10 +12,10 @@ router.route('/users/:id')
 .get(users.show)
 .put(users.update);
 
-router.route("/brewClubs")
+router.route("/memberships")
 .get(brewClubs.index)
 .post(brewClubs.create);
-router.route('/brewClubs/:id')
+router.route('/memberships/:id')
 .get(brewClubs.show)
 .put(brewClubs.update)
 .delete(brewClubs.delete);

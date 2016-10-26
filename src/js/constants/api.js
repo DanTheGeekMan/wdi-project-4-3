@@ -1,3 +1,3 @@
 angular
-  .module("swishListApp")
+  .module("brewClub")
   .constant("API", `${window.location.origin}/api`);

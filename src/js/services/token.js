@@ -1,5 +1,5 @@
 angular
-  .module("swishListApp")
+  .module("brewClub")
   .service("TokenService", TokenService);
 
 TokenService.$inject = ["$window", "jwtHelper"];

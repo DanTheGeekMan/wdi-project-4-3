@@ -1,5 +1,5 @@
 angular
-.module("swishListApp")
+.module("brewClub")
 .controller("MainCtrl", MainCtrl);
 
 MainCtrl.$inject = ["$rootScope", "CurrentUserService", "$state"];
@@ -9,7 +9,11 @@ function MainCtrl($rootScope, CurrentUserService, $state) {
 
   $rootScope.$on("loggedIn", () => {
     vm.user = CurrentUserService.getUser();
-    $state.go("clothesItemsIndex");
+    if (vm.user.brew) {
+      $state.go("memberships");
+    } else {
+      $state.go("usersBrew", {id: vm.user._id});
+    }
   });
 
   vm.logout = () => {
@@ -21,18 +25,4 @@ function MainCtrl($rootScope, CurrentUserService, $state) {
     vm.user = null;
     $state.go("home");
   });
-
-  vm.toggleBurger = toggleBurger;
-  function toggleBurger(){
-    $('.navbar-toggle').click();
-  }
-
-  vm.toggleFilter = toggleFilter;
-  function toggleFilter(){
-    event.stopPropagation();
-    event.preventDefault();
-    console.log("clicked");
-    $("#menu-toggle").toggleClass("clicked");
-    $("#sidebar-wrapper").toggleClass("active");
-  }
 }

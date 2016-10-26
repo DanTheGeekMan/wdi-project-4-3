@@ -1,12 +1,12 @@
 angular
-.module("swishListApp")
+.module("brewClub")
 .controller("HomeCtrl", HomeCtrl);
 
 HomeCtrl.$inject = ["User", "CurrentUserService", "$state"];
 function HomeCtrl(User, CurrentUserService, $state){
   const vm = this;
 
-  if (CurrentUserService.getUser()) $state.go("clothesItemsIndex");
+  if (CurrentUserService.getUser()) $state.go("membershipsIndex");
 
   vm.register = () => {
     User

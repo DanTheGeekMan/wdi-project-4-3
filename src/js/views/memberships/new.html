@@ -1,0 +1,22 @@
+<h1>Start Club</h1>
+<form name="newClub" ng-submit="new.submit()">
+  <div class="form-group">
+    <div class="form-group">
+      <input
+        class="form-control"
+        type="text"
+        name="name"
+        ng-model="new.brewClub.name"
+        placeholder="Add a name for the club">
+    </div>
+    <div class="form-group">
+      <input
+        class="form-control"
+        type="text"
+        name="image"
+        ng-model="new.brewClub.image"
+        placeholder="Add an image for the club">
+    </div>
+    <input type="submit" value="Create" class="btn btn-primary pull-right">
+  </div>
+</form>

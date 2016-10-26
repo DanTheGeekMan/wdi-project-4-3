@@ -9,12 +9,12 @@ module.exports = {
 const BrewClub = require('../models/brewClub');
 
 function brewClubsIndex(req, res) {
-  let query = {};
-  // if (req.query.user) query.owner = req.query.user;
-  if (req.user.id) query.owner = req.user.id;
-  console.log(query.owner)
-  console.log(req.user.id)
-  BrewClub.find(query)
+  BrewClub.find({
+    $or: [
+      { owner: req.user._id },
+      { members: { $in: [req.user._id ] } }
+    ]
+  })
   .populate("owner")
   .exec((err, brewClubs) => {
     if (err) return res.status(500).json({ message: "Something went wrong." });
@@ -24,20 +24,22 @@ function brewClubsIndex(req, res) {
 
 function brewClubsCreate(req, res) {
   const brewClub = new BrewClub(req.body.brewClub);
-  console.log(req.user_id);
-  console.log(req.user.id);
-  brewClub.owner = req.user.id;
+
+  brewClub.owner = req.user._id;
   brewClub.save((err, brewClub) => {
     if (err) return res.status(500).json({ err });
     return res.status(201).json({ brewClub });
   });}
 
 function brewClubsShow(req, res) {
-  BrewClub.findById(req.params.id, (err, brewClub) => {
-      if (err) return res.status(500).json({ message: "Something went wrong" });
-      if (!brewClub) return res.status(404).json({ message: "ClothesItem not found." });
-      return res.status(200).json({ brewClub });
-    });
+  BrewClub
+  .findById(req.params.id)
+  .populate("members")
+  .exec((err, brewClub) => {
+    if (err) return res.status(500).json({ message: "Something went wrong" });
+    if (!brewClub) return res.status(404).json({ message: "ClothesItem not found." });
+    return res.status(200).json({ brewClub });
+  });
 }
 
 function brewClubsUpdate(req, res) {

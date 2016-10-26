@@ -1,0 +1,18 @@
+<h1>Memberships</h1>
+<ul>
+  <li ng-repeat="membership in index.memberships">
+    <ul>
+      <li>
+        {{ membership.image }}
+      </li>
+      <li>
+        <a ui-sref="membershipsShow({ id: membership._id })">
+          <h2>{{ membership.name }}</h2>
+        </a>
+      </li>
+      <li>
+        {{ membership.members.length }}
+      </li>
+    </ul>
+  </li>
+</ul>

@@ -1,5 +1,5 @@
 angular
-  .module("swishListApp")
+  .module("brewClub")
   .factory("AuthInterceptor", AuthInterceptor);
 
 AuthInterceptor.$inject = ["API", "TokenService"];

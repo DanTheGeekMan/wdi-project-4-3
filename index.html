@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="swishListApp">
+<html ng-app="brewClub">
   <meta charset="utf-8">
   <title>Brew Club</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,33 +18,21 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" ng-hide="main.user"><img src="" alt="Brew Club" /></a>
-          <a id="mobile-logo" class="navbar-brand"               ng-show="main.user" ui-sref-active ui-sref="clothesItemsIndex" ><img src="" ng-click="main.removeBurger(e)" alt="brew-club-logo" /></a>
-          <a id="active-logo" class="navbar-brand nav-bar-links" ng-show="main.user" ui-sref-active ui-sref="clothesItemsIndex" ><img src="" ng-click="main.removeBurger(e)" alt="brew-club-logo" /></a>
+          <a class="navbar-brand" ui-sref="membershipsIndex">BrewClub</a>
         </div>
-
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul ng-cloak ng-show="main.user" class="nav navbar-nav navbar-right">
-            <li ng-click="main.toggleBurger()">
-              <a class="nav-bar-links"  href="#" ui-sref="clothesItemsIndex" ui-sref-active>Browse Clothes</a>
+            <li>
+              <a ui-sref="membershipsNew">Start Club</a>
             </li>
-            <li ng-click="main.toggleBurger()">
-              <a class="nav-bar-links"  href="#" ui-sref="clothesItemsNew" ui-sref-active>Add an item</a>
+            <li>
+              <a ui-sref="usersBrew({ id: main.user.id })">Edit Brew</a>
             </li>
-            <li ng-click="main.toggleBurger()">
-              <a class="nav-bar-links"  href="#" ui-sref="usersWardrobeShow" ui-sref-active>Wardrobe</a>
+            <li>
+              <a ui-sref="usersEdit({ id: main.user.id })">Edit Profile</a>
             </li>
-            <li ng-click="main.toggleBurger()">
-              <a class="nav-bar-links"  href="#" ui-sref="usersIncomingShow" ui-sref-active>Incoming Swishes</a>
-            </li>
-            <li ng-click="main.toggleBurger()">
-              <a class="nav-bar-links"  href="#" ui-sref="usersOutgoingShow" ui-sref-active >Outgoing Swishes</a>
-            </li>
-            <li ng-click="main.toggleBurger()">
-              <a class="nav-bar-links"  href="#" ui-sref="usersArchiveShow" ui-sref-active >Archive</a>
-            </li>
-            <li ng-click="main.toggleBurger()">
-              <a class="nav-bar-links" href="#" ng-click="main.logout()">Logout</a>
+            <li>
+              <a ng-click="main.logout()">Logout</a>
             </li>
           </ul>
         </div>
@@ -52,11 +40,12 @@
     </nav>
   </header>
 
-  <main ui-view class="container">
-  </main>
+  <main ui-view class="container"></main>
 
   <footer>
-    <h3>&copy; Dan Rogers</h1>
+    <div class="container">
+      <h3>&copy; Dan Rogers</h1>
+    </div>
   </footer>
 
 </body>

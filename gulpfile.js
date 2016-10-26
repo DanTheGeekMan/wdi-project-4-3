@@ -123,11 +123,11 @@ return gulp.src(`${src}/**/*.html`)
 });
 
 // clean public
-gulp.task('clean:public', () => {
-  return del([
-    'public/**/*',
-  ]);
-});
+// gulp.task('clean:public', () => {
+//   return del([
+//     'public/**/*',
+//   ]);
+// });
 
 gulp.task('html', () => {
   return gulp.src('./index.html')
@@ -158,7 +158,7 @@ gulp.task('nodemon', () => {
 });
 
 gulp.task("default", [
-  'clean:public',
+  // 'clean:public',
   'bower',
   'sass',
   'copy',

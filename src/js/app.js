@@ -1,5 +1,5 @@
 angular
-  .module("swishListApp", [
+  .module("brewClub", [
     "ui.router",
     "ngResource",
     "angular-jwt"

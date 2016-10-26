@@ -1,10 +1,11 @@
 angular
-  .module("swishListApp")
+  .module("brewClub")
   .service("CurrentUserService", CurrentUserService);
 
-  CurrentUserService.$inject = ["TokenService", "$rootScope"];
-  function CurrentUserService(TokenService, $rootScope){
+  CurrentUserService.$inject = ["TokenService", "$rootScope", "User"];
+  function CurrentUserService(TokenService, $rootScope, User){
     let currentUser = TokenService.decodeToken();
+    if (currentUser) User.get(currentUser);
 
     return {
       user: currentUser,

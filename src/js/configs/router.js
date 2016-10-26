@@ -1,5 +1,5 @@
 angular
-  .module("swishListApp")
+  .module("brewClub")
   .config(Router);
 
 Router.$inject = ["$stateProvider", "$urlRouterProvider", "$locationProvider"];
@@ -12,57 +12,31 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider){
     templateUrl: "/js/views/home.html",
     controller: "HomeCtrl as home"
   })
-  .state('clothesItemsIndex', {
-    url: '/clothesItems',
-    templateUrl: '/js/views/clothesItems/index.html',
-    controller: 'ClothesItemsIndexCtrl as clothesItems'
+  .state("membershipsIndex", {
+    url: "/memberships",
+    templateUrl: "/js/views/memberships/index.html",
+    controller: "MembershipsIndexCtrl as index"
   })
-  .state('clothesItemsNew', {
-    url: '/clothesItems/new',
-    templateUrl: '/js/views/clothesItems/new.html',
-    controller: 'ClothesItemsNewCtrl as clothesItems'
+  .state("membershipsNew", {
+    url: "/memberships/new",
+    templateUrl: "/js/views/memberships/new.html",
+    controller: "MembershipsNewCtrl as new"
   })
-  .state("clothesItemsEdit", {
-    url: "/clothesItems/:id/edit",
-    templateUrl: "/js/views/clothesItems/edit.html",
-    controller: "ClothesItemsEditCtrl as clothesItems"
+  .state("membershipsShow", {
+    url: "/memberships/:id",
+    templateUrl: "/js/views/memberships/show.html",
+    controller: "MembershipsShowCtrl as show"
   })
-  .state('clothesItemsShow', {
-    url: '/clothesItems/:id',
-    templateUrl: '/js/views/clothesItems/show.html',
-    controller: 'ClothesItemsShowCtrl as clothesItems'
+  .state("usersBrew", {
+    url: "/users/:id/edit/brew",
+    templateUrl: "/js/views/users/brew.html",
+    controller: "UsersBrewCtrl as brew"
   })
-  .state('usersWardrobeShow', {
-    url: '/user/wardrobe',
-    templateUrl: '/js/views/users/wardrobeShow.html',
-    controller: 'WardrobeShowCtrl as wardrobe'
-  })
-  .state('usersIncomingShow', {
-    url: '/user/inbox',
-    templateUrl: '/js/views/users/incomingShow.html',
-    controller: 'IncomingShowCtrl as incoming'
-  })
-  .state('usersOutgoingShow', {
-    url: '/user/outbox',
-    templateUrl: '/js/views/users/outgoingShow.html',
-    controller: 'OutgoingShowCtrl as outgoing'
-  })
-  .state('usersArchiveShow', {
-    url: '/user/archive',
-    templateUrl: '/js/views/users/archiveShow.html',
-    controller: 'ArchiveShowCtrl as archive'
-  })
-  .state('swishbackIndex', {
-    url: '/:transaction/:user/wardrobe',
-    templateUrl: '/js/views/swishbacks/index.html',
-    controller: 'SwishbackIndexCtrl as swishback'
-  })
-  .state('swishbackShow', {
-    url: '/:transaction/:user/wardrobe/:id',
-    templateUrl: '/js/views/swishbacks/show.html',
-    controller: 'SwishbackShowCtrl as swishback'
-  })
-  ;
+  .state("usersEdit", {
+    url: "/users/:id/edit",
+    templateUrl: "/js/views/users/edit.html",
+    controller: "UsersEditCtrl as edit"
+  });
 
   $urlRouterProvider.otherwise("/");
 

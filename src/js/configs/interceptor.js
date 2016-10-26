@@ -1,5 +1,5 @@
 angular
-  .module("swishListApp")
+  .module("brewClub")
   .config(setUpInterceptor);
 
 setUpInterceptor.$inject = ["$httpProvider"];

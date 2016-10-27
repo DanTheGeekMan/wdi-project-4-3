@@ -23,9 +23,15 @@ function brewClubsIndex(req, res) {
 }
 
 function brewClubsCreate(req, res) {
+  console.log(req.body);
+  console.log(req.user.id);
+  console.log(req.user._id);
+  console.log(req.user);
   const brewClub = new BrewClub(req.body.brewClub);
 
-  brewClub.owner = req.user._id;
+  // Original value but returns undefined.
+  // brewClub.owner = req.user._id;
+  brewClub.owner = req.user.id;
   brewClub.save((err, brewClub) => {
     if (err) return res.status(500).json({ err });
     return res.status(201).json({ brewClub });
@@ -43,6 +49,7 @@ function brewClubsShow(req, res) {
 }
 
 function brewClubsUpdate(req, res) {
+  console.log(req.body.brewClub);
   BrewClub.findByIdAndUpdate(req.params.id, req.body.brewClub, (err, brewClub) => {
       if (err) return res.status(500).json({ message: "Something went wrong." });
       if (!brewClub) return res.status(404).json({ message: "ClothesItem not found." });

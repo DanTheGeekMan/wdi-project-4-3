@@ -7,7 +7,6 @@ const userSchema = new mongoose.Schema({
   firstName:    { type: String, trim: true },
   lastName:     { type: String, trim: true },
   email:        { type: String, unique: true, trim: true, required: true },
-  phone:        { type: String, trim: true },
   passwordHash: { type: String, required: true },
   brew: {
     type:     { type: String, enum: ["tea", "coffee"], required: true },

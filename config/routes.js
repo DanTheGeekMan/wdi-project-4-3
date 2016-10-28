@@ -19,5 +19,7 @@ router.route('/memberships/:id')
 .get(brewClubs.show)
 .put(brewClubs.update)
 .delete(brewClubs.delete);
+router.route('/memberships/:id/join')
+.put(brewClubs.join);
 
 module.exports = router;

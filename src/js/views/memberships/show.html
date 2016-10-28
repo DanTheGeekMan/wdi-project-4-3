@@ -1,7 +1,15 @@
-<h2>{{ show.brewClub.name }}</h2>
-<img ng-src="{{ show.brewClub.image }}">
-<ul>
-  <li ng-repeat="member in show.brewClub.members">
-    {{ member.firstName }}
-  </li>
-</ul>
+<div class="club">
+  <h2>{{ show.brewClub.name }}</h2>
+  <div class="rounded-large">
+    <img ng-src="{{ show.brewClub.image }}">
+  </div>
+  <div>
+    <a class="btn btn-primary" ng-hide="vm.joined" ng-click="show.join()">Join</a>
+  </div>
+  <h3>Members</h3>
+  <div class="media" ng-repeat="member in show.brewClub.members">
+    <div class="media-body">
+      <h4 class="media-heading">{{ member.username }} has his {{ member.brew.type }} {{ member.brew.color }} with {{ member.brew.sugar }} sugars and {{ member.brew.sweetner }} sweeteners
+    </div>
+  </div>
+</div>

@@ -9,6 +9,7 @@ function HomeCtrl(User, CurrentUserService, $state){
   if (CurrentUserService.getUser()) $state.go("membershipsIndex");
 
   vm.register = () => {
+    console.log("clicked");
     User
     .register( { user : vm.userRegister })
     .$promise

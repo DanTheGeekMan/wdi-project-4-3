@@ -1,0 +1,39 @@
+header {
+  -webkit-box-shadow: 0px 0px 4px 2px $lightGrey;
+    -moz-box-shadow: 0px 0px 4px 2px $lightGrey;
+    box-shadow: 0px 0px 4px 2px $lightGrey;
+
+  .navbar {
+    background: $white;
+    margin-bottom: 0;
+    border: 0;
+    border-radius: 0;
+    line-height: 60px;
+    height: 60px;
+
+    .navbar-brand {
+      font-family: $logo-font;
+      font-size: 30px;
+      color: $red !important;
+
+      &:hover {
+        color: $red !important;
+      }
+    }
+
+    a, li {
+      line-height: 60px !important;
+      height: 60px !important;
+      padding: 0 1rem;
+      color: $nearlyBlack !important;
+
+      &:last-child {
+        padding-right: 0;
+      }
+
+      &:first-child {
+        padding-left: 0;
+      }
+    }
+  }
+}

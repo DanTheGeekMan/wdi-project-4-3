@@ -1,0 +1,24 @@
+.rounded {
+  border-radius: 100%;
+  max-width: 150px !important;
+  max-height: 150px !important;
+  overflow: hidden;
+  display: inline-block;
+
+  .media-object {
+    max-width: 150px !important;
+  }
+}
+
+.rounded-large {
+  border-radius: 100%;
+  max-width: 300px !important;
+  max-height: 300px !important;
+  overflow: hidden;
+  display: inline-block;
+
+  img {
+    max-width: 300px !important;
+    margin-bottom: 2.5rem;
+  }
+}

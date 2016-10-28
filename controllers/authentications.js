@@ -9,7 +9,7 @@ const config = require("../config/config");
 
 function authenticationsRegister(req, res){
   User.create(req.body.user, (err, user) => {
-    if (err) return res.status(500).json({ message: "Something went wrong." });
+    if (err) return res.status(500).json({ error });
 
     let token = jwt.sign({ id: user.id, username: user.username }, config.secret, { expiresIn: 60*60*24 });
 

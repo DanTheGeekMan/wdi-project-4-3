@@ -10,7 +10,7 @@ function MainCtrl($rootScope, CurrentUserService, $state) {
   $rootScope.$on("loggedIn", () => {
     vm.user = CurrentUserService.getUser();
     if (vm.user.brew) {
-      $state.go("memberships");
+      $state.go("membershipsIndex");
     } else {
       $state.go("usersBrew", {id: vm.user._id});
     }

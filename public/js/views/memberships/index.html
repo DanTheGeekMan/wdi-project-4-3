@@ -1,18 +1,14 @@
-<h1>Memberships</h1>
-<ul>
-  <li ng-repeat="membership in index.memberships">
-    <ul>
-      <li>
-        {{ membership.image }}
-      </li>
-      <li>
-        <a ui-sref="membershipsShow({ id: membership._id })">
-          <h2>{{ membership.name }}</h2>
-        </a>
-      </li>
-      <li>
-        {{ membership.members.length }}
-      </li>
-    </ul>
-  </li>
-</ul>
+<h1>Your BrewClubs</h1>
+<div class="media" ng-repeat="membership in index.memberships">
+  <div class="media-left">
+    <a ui-sref="membershipsShow({ id: membership._id })" class="rounded">
+      <img class="media-object" ng-src="{{ membership.image }}">
+    </a>
+  </div>
+  <div class="media-body">
+    <a ui-sref="membershipsShow({ id: membership._id })">
+      <h4 class="media-heading">{{ membership.name }}</h4>
+    </a>
+    <p><strong>Number of members:</strong> {{ membership.members.length }}</li>
+  </div>
+</div>

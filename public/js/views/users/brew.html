@@ -1,7 +1,40 @@
 <h2>Edit Brew</h2>
 <form ng-submit="brew.submit()">
   <div class="form-group">
-    <input class="form-control" type="text" name="username" ng-model="brew.user.brew.type" placeholder="Type">
+    <select class="form-control" ng-model="brew.user.brew.type">
+      <option value="tea" ng-selected="brew.user.brew.type === 'tea'">Tea</option>
+      <option value="coffee" ng-selected="brew.user.brew.type === 'coffee'">Coffee</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <select class="form-control" ng-model="brew.user.brew.sugar">
+      <option value="0" ng-selected="!!brew.user.brew.sugar">0</option>
+      <option value="1" ng-selected="brew.user.brew.sugar === 1">1</option>
+      <option value="2" ng-selected="brew.user.brew.sugar === 2">2</option>
+      <option value="3" ng-selected="brew.user.brew.sugar === 3">3</option>
+      <option value="4" ng-selected="brew.user.brew.sugar === 4">4</option>
+      <option value="5" ng-selected="brew.user.brew.sugar === 5">5</option>
+      <option value="6" ng-selected="brew.user.brew.sugar === 6">6</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <select class="form-control" ng-model="brew.user.brew.sweetner">
+      <option value="0" ng-selected="brew.user.brew.sweetner === 0">0</option>
+      <option value="1" ng-selected="brew.user.brew.sweetner === 1">1</option>
+      <option value="2" ng-selected="brew.user.brew.sweetner === 2">2</option>
+      <option value="3" ng-selected="brew.user.brew.sweetner === 3">3</option>
+      <option value="4" ng-selected="brew.user.brew.sweetner === 4">4</option>
+      <option value="5" ng-selected="brew.user.brew.sweetner === 5">5</option>
+      <option value="6" ng-selected="brew.user.brew.sweetner === 6">6</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <select class="form-control" ng-model="brew.user.brew.colour">
+      <option value="light" ng-selected="brew.user.brew.colour === 'light'">Light</option>
+      <option value="normal" ng-selected="brew.user.brew.colour === 'normal'">Normal</option>
+      <option value="dark" ng-selected="brew.user.brew.colour === 'dark'">Dark</option>
+      <option value="black" ng-selected="brew.user.brew.colour === 'black'">Black</option>
+    </select>
   </div>
   <input class="btn btn-primary pull-right" type="submit" value="Save" />
 </form>

@@ -9,10 +9,10 @@ const userSchema = new mongoose.Schema({
   email:        { type: String, unique: true, trim: true, required: true },
   passwordHash: { type: String, required: true },
   brew: {
-    type:     { type: String, enum: ["tea", "coffee"], required: true },
+    type:     { type: String, enum: ["tea", "coffee"]},
     sugar:    { type: Number },
     sweetner: { type: Number },
-    colour:   { type: String, enum: ["light", "normal", "dark", "black"], required: true },
+    colour:   { type: String, enum: ["light", "normal", "dark", "black"]},
   }
 }, {
   timestamps: true

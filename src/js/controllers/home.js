@@ -22,6 +22,7 @@ function HomeCtrl(User, CurrentUserService, $state){
   };
 
   vm.login = () => {
+    console.log("clicked");
     User
     .login(vm.userLogin)
     .$promise
